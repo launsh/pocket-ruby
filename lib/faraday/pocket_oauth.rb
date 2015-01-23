@@ -5,7 +5,7 @@ module FaradayMiddleware
   # @private
   class PocketOAuth < Faraday::Middleware
     def call(env)
-      env[:body] = {} if env[:body].nil?
+      env[:body] = {} if env[:body].blank?
       env[:body] = env[:body].merge(:consumer_key => @consumer_key)
 
       if @access_token
